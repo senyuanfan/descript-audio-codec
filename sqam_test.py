@@ -7,7 +7,7 @@ import soundfile as sf
 # Download a model
 model_path = dac.utils.download(model_type="44khz")
 model = dac.DAC.load(model_path)
-model.to('cpu')
+model.to('cuda')
 
 def encode_decode(inst):
     # Load audio signal file
@@ -26,14 +26,14 @@ def encode_decode(inst):
     # (may run out of GPU memory on long files)
     signal.to(model.device)
 
-    print(signal.audio_data[:, 0, :].shape)
+    # print(signal.audio_data[:, 0, :].shape)
     # only use the left channel if the input is stereo
     x = model.preprocess(signal.audio_data[:, 0, :].unsqueeze(dim=1), signal.sample_rate)
     # x = model.preprocess(signal, fs)
-    z, codes, latents, _, _ = model.encode(x)
+    # z, codes, latents, _, _ = model.encode(x)
 
-    # Decode audio signal
-    y = model.decode(z)
+    # # Decode audio signal
+    # y = model.decode(z)
 
     # Alternatively, use the `compress` and `decompress` functions
     # to compress long files.
