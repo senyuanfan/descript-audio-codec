@@ -11,11 +11,10 @@ model.to('cuda')
 
 def encode_decode(inst):
     # Load audio signal file
-    input_path = os.path.join('sqam', inst, inst+'.wav')
-    dac_path = os.path.join('sqam', inst, inst+'_compressed.dac')
-    output_path = os.path.join('sqam', inst, inst+'_recovered.wav')
-
-
+    input_path = os.path.join('sqam', inst+'.wav')
+    dac_path = os.path.join('sqam', inst+'_compressed.dac')
+    output_path = os.path.join('sqam', inst+'_recovered.wav')
+    
     signal = AudioSignal(input_path)
     # print(signal.audio_data.shape)
 
@@ -52,7 +51,7 @@ def encode_decode(inst):
     y.write(output_path)
 
 if __name__ == "__main__":
-    # insts = ['castanet', 'applause', 'german', 'oboe', 'quartet', 'violin', 'harpsichord']
-    insts = ['castanet']
+    insts = ['castanets', 'glockenspiel', 'harpsichord', 'oboe', 'quartet', 'spfe', 'spgm']
+    # insts = ['castanets']
     for inst in insts:
         encode_decode(inst)
