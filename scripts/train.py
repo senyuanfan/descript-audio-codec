@@ -90,11 +90,22 @@ def build_dataset(
     # cycles through them.
     datasets = []
     for _, v in folders.items():
+
+        # print("Can we print V here?", v)
+
         loader = AudioLoader(sources=v)
         transform = build_transform()
-        dataset = AudioDataset(loader, sample_rate, transform=transform)
+
+        # dataset = AudioDataset(loader, sample_rate, transform=transform)
+
+        dataset = AudioDataset(loader, sample_rate)
+
+
+        # print("Lemme print lengtt: ", len(dataset))
+
         datasets.append(dataset)
 
+    
     dataset = ConcatDataset(datasets)
     dataset.transform = transform
     return dataset
@@ -224,6 +235,7 @@ def val_loop(batch, state, accel):
 
 @timer()
 def train_loop(state, batch, accel, lambdas):
+    # print("here!")
     state.generator.train()
     state.discriminator.train()
     output = {}
@@ -396,6 +408,7 @@ def train(
         persistent_workers=True if num_workers > 0 else False,
     )
 
+    print("here first!")
     # Wrap the functions so that they neatly track in TensorBoard + progress bars
     # and only run when specific conditions are met.
     global train_loop, val_loop, validate, save_samples, checkpoint
@@ -436,4 +449,8 @@ if __name__ == "__main__":
         with Accelerator() as accel:
             if accel.local_rank != 0:
                 sys.tracebacklimit = 0
+
+            # add breakpoint() to enable pdb
+            # breakpoint()
+
             train(args, accel)
