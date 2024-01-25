@@ -69,11 +69,11 @@ def setup_module(module):
     argbind.dump_args(conf, Path(__file__).parent / "assets" / "conf.yml")
 
 
-def teardown_module(module):
-    repo_root = Path(__file__).parent.parent
-    # Remove fake dataset dir
-    subprocess.check_output(["rm", "-rf", f"{repo_root}/tests/assets"])
-    subprocess.check_output(["rm", "-rf", f"{repo_root}/tests/runs"])
+# def teardown_module(module):
+#     repo_root = Path(__file__).parent.parent
+#     # Remove fake dataset dir
+#     subprocess.check_output(["rm", "-rf", f"{repo_root}/tests/assets"])
+#     subprocess.check_output(["rm", "-rf", f"{repo_root}/tests/runs"])
 
 
 def test_single_gpu_train():

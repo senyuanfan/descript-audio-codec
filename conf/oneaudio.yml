@@ -1,0 +1,174 @@
+AdamW.betas:
+- 0.8
+- 0.99
+AdamW.lr: 0.0001
+
+AudioDataset.without_replacement: true
+
+AudioLoader.shuffle: true
+
+DAC.codebook_dim: 8
+DAC.codebook_size: 1024
+DAC.decoder_dim: 1536
+DAC.decoder_rates:
+- 8
+- 8
+- 4
+- 2
+DAC.encoder_dim: 64
+DAC.encoder_rates:
+- 2
+- 4
+- 8
+- 8
+DAC.n_codebooks: 9
+DAC.quantizer_dropout: 1.0
+DAC.sample_rate: 44100
+
+Discriminator.bands:
+- - 0.0
+  - 0.1
+- - 0.1
+  - 0.25
+- - 0.25
+  - 0.5
+- - 0.5
+  - 0.75
+- - 0.75
+  - 1.0
+Discriminator.fft_sizes:
+- 2048
+- 1024
+- 512
+Discriminator.periods:
+- 2
+- 3
+- 5
+- 7
+- 11
+Discriminator.rates: []
+Discriminator.sample_rate: 44100
+
+ExponentialLR.gamma: 0.999996
+
+MelSpectrogramLoss.clamp_eps: 1.0e-05
+MelSpectrogramLoss.mag_weight: 0.0
+MelSpectrogramLoss.mel_fmax:
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+MelSpectrogramLoss.mel_fmin:
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+MelSpectrogramLoss.n_mels:
+- 5
+- 10
+- 20
+- 40
+- 80
+- 160
+- 320
+MelSpectrogramLoss.pow: 1.0
+MelSpectrogramLoss.window_lengths:
+- 32
+- 64
+- 128
+- 256
+- 512
+- 1024
+- 2048
+
+MultiScaleSTFTLoss.window_lengths:
+- 2048
+- 512
+
+VolumeNorm.db:
+- const
+- -16
+
+amp: false
+
+args.debug: false
+
+batch_size: 12
+
+build_transform.augment:
+- Identity
+build_transform.augment_prob: 0.0
+build_transform.postprocess:
+- VolumeNorm
+- RescaleAudio
+- ShiftPhase
+build_transform.preprocess:
+- Identity
+
+device: cuda
+
+lambdas:
+
+  adv/feat_loss: 2.0
+
+  adv/gen_loss: 1.0
+
+  mel/loss: 15.0
+
+  vq/codebook_loss: 1.0
+
+  vq/commitment_loss: 0.25
+
+num_iters: 1
+
+num_workers: 4
+
+sample_freq: 10000
+
+save_iters:
+- 10000
+- 50000
+- 100000
+- 200000
+
+seed: 0
+
+test/AudioDataset.duration: 10.0
+test/AudioDataset.n_examples: 1000
+
+test/build_dataset.folders:
+
+  music:
+  - /home/ubuntu/Senyuan/descript-audio-codec/data/oneaudio/test
+
+test/build_transform.augment_prob: 1.0
+
+train/AudioDataset.duration: 0.38
+train/AudioDataset.n_examples: 10000000
+
+train/build_dataset.folders:
+  music:
+  - /home/ubuntu/Senyuan/descript-audio-codec/data/oneaudio/train
+
+val/AudioDataset.duration: 5.0
+val/AudioDataset.n_examples: 1
+
+val/build_dataset.folders:
+  music:
+  - /home/ubuntu/Senyuan/descript-audio-codec/data/oneaudio/val
+
+val/build_transform.augment_prob: 1.0
+
+val_batch_size: 1
+
+val_idx:
+- 0
+
+valid_freq: 1000
+
