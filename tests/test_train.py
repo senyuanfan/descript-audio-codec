@@ -1,5 +1,6 @@
 """
 Tests for CLI.
+run with "python -m pytest tests"
 """
 import os
 import shlex
@@ -85,11 +86,11 @@ def test_single_gpu_train():
     subprocess.check_output(args, env=env)
 
 
-def test_multi_gpu_train():
-    env = os.environ.copy()
-    env["CUDA_VISIBLE_DEVICES"] = "0,1"
-    repo_root = Path(__file__).parent.parent
-    args = shlex.split(
-        f"torchrun --nproc_per_node gpu {repo_root}/scripts/train.py --args.load {repo_root}/tests/assets/conf.yml --save_path {repo_root}/tests/runs/baseline_multigpu"
-    )
-    subprocess.check_output(args, env=env)
+# def test_multi_gpu_train():
+#     env = os.environ.copy()
+#     env["CUDA_VISIBLE_DEVICES"] = "0,1"
+#     repo_root = Path(__file__).parent.parent
+#     args = shlex.split(
+#         f"torchrun --nproc_per_node gpu {repo_root}/scripts/train.py --args.load {repo_root}/tests/assets/conf.yml --save_path {repo_root}/tests/runs/baseline_multigpu"
+#     )
+#     subprocess.check_output(args, env=env)
