@@ -96,9 +96,9 @@ def build_dataset(
         loader = AudioLoader(sources=v)
         transform = build_transform()
 
-        # dataset = AudioDataset(loader, sample_rate, transform=transform)
+        dataset = AudioDataset(loader, sample_rate, transform=transform)
 
-        dataset = AudioDataset(loader, sample_rate)
+        # dataset = AudioDataset(loader, sample_rate)
 
 
         # print("Lemme print lengtt: ", len(dataset))
@@ -408,7 +408,7 @@ def train(
         persistent_workers=True if num_workers > 0 else False,
     )
 
-    print("here first!")
+    # print("here first!")
     # Wrap the functions so that they neatly track in TensorBoard + progress bars
     # and only run when specific conditions are met.
     global train_loop, val_loop, validate, save_samples, checkpoint
