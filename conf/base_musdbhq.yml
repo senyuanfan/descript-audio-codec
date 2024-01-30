@@ -1,6 +1,6 @@
 # training configuration for oneaudio
 # modified by Senyuan and Emily
-# command: "python ./scripts/train.py --args.load ./conf/base_oneaudio.yml --save_path ./runs/oneaudio" or "python ./scripts/train.py --args.load ./conf/test_conf_oneaudio.yml --save_path ./runs/oneaudio"
+# command: "python ./scripts/train.py --args.load ./conf/base_musdbhq.yml --save_path ./runs/musdbhq"
 
 # Model setup
 DAC.sample_rate: 44100
@@ -33,7 +33,7 @@ AdamW.lr: 0.0001
 ExponentialLR.gamma: 0.999996
 
 amp: false
-val_batch_size: 1
+val_batch_size: 12
 device: cuda
 num_iters: 250000
 save_iters: [10000, 50000, 100000, 200000]
