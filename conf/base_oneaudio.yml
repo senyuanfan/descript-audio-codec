@@ -1,6 +1,6 @@
 # training configuration for oneaudio
 # modified by Senyuan and Emily
-# command: "python ./scripts/train.py --args.load ./conf/base_oneaudio.yml --save_path ./runs/oneaudio" or "python ./scripts/train.py --args.load ./conf/test_conf_oneaudio.yml --save_path ./runs/oneaudio"
+# command: "python ./scripts/train.py --args.load ./conf/base_oneaudio.yml --save_path ./runs/oneaudio" or "python ./scripts/train.py --args.load ./conf/test_oneaudio.yml --save_path ./runs/oneaudio"
 
 # Model setup
 DAC.sample_rate: 44100

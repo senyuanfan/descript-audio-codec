@@ -117,7 +117,7 @@ train/build_dataset.folders:
   #   - /data/audioset/data/balanced_train_segments/
     music_hq:
     # - /home/ubuntu/Senyuan/descript-audio-codec/data/oneaudio/train
-    - /home/ubuntu/Senyuan/descript-audio-codec/data/musdb_hq/train
+    - /home/ubuntu/Senyuan/descript-audio-codec/data/musdb-hq/train
 
 
 val/build_dataset.folders:
@@ -129,7 +129,7 @@ val/build_dataset.folders:
   #   - /data/audioset/data/eval_segments/
    music_hq:
     # - /home/ubuntu/Senyuan/descript-audio-codec/data/oneaudio/val
-    - /home/ubuntu/Senyuan/descript-audio-codec/data/musdb_hq/test
+    - /home/ubuntu/Senyuan/descript-audio-codec/data/musdb-hq/test
 
 test/build_dataset.folders:
   # speech_hq:
@@ -140,35 +140,6 @@ test/build_dataset.folders:
   #   - /data/audioset/data/eval_segments/
    music_hq:
     # - /home/ubuntu/Senyuan/descript-audio-codec/data/oneaudio/test
-    - /home/ubuntu/Senyuan/descript-audio-codec/data/oneaudio/test
+    - /home/ubuntu/Senyuan/descript-audio-codec/data/musdb-hq/test
 
 
-### Try training on a single dataset
-
-# train/build_dataset.folders:
-#   music_hq:
-#     - /data/musdb-hq/train
-
-
-# val/build_dataset.folders:
-#   music_hq:
-#     - /data/musdb-hq/test
-
-
-# test/build_dataset.folders:
-#   music_hq:
-#     - /data/musdb-hq/test
-
-# train/build_dataset.folders:
-#   music_hq:
-#     - /data/oneaudio/train
-
-
-# val/build_dataset.folders:
-#   music_hq:
-#     - /data/oneaudio/test
-
-
-# test/build_dataset.folders:
-#   music_hq:
-#     - /data/oneaudio/test
