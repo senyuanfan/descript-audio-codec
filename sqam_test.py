@@ -5,7 +5,9 @@ from audiotools import AudioSignal
 import soundfile as sf
 
 # Download a model
-model_path = dac.utils.download(model_type="44khz")
+# model_path = dac.utils.download(model_type="44khz")
+model_path = "/home/ubuntu/Senyuan/descript-audio-codec/runs/musdbhq/best/dac/weights.pth"
+print(model_path)
 model = dac.DAC.load(model_path)
 model.to('cuda')
 
